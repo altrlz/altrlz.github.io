@@ -10,23 +10,14 @@
 	
 	<body>
         <div id="app">
-            <h1>altrlz from 31</h1>
-            <div>
-                ここに概要
-            </div>
-            <div>
-                スキル関連の話
-            </div>
-            <div>
-                各種リンク
-            </div>
-            <div>
-                最近の更新
-            </div>
-        
+            <h1>altrlz</h1>
+            {{ message }}
+            <router-link to="/top">トップ</router-link>
+            <router-link to="/profile">自己紹介</router-link>
+            <router-view></router-view>
         </div>
-        
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
         <script src="js/mypage.js"></script>
     </body>
 	
