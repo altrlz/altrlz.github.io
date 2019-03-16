@@ -1,16 +1,22 @@
 var getOutputs = function(callback) {
-    setTimeout(function(){
-        callback(null,[
-            {
-                id:'001',
-                title:'AAAA'
-            },
-            {
-                id:'002',
-                title:'BBBB'
-            }
-        ])
-    },1000)
+//     setTimeout(function(){
+//         callback(null,[
+//             {
+//                 id:'001',
+//                 title:'AAAA'
+//             },
+//             {
+//                 id:'002',
+//                 title:'BBBB'
+//             }
+//         ])
+//     },1000)
+       callback(null,
+            axios.get('https://api.github.com/users/altrlz/repos')
+            .then(function(response) {
+                return response.data
+            })
+      )
 }
 
 var OutputList = {
@@ -36,10 +42,16 @@ var OutputList = {
             this.loading = true
             getOutputs((function (err, outputs) {
                 this.loading = false
+                console.log('err:'+err)
+                console.log('outputs:'+outputs)
                 if (err) {
                     this.error = err.toString()
                 } else {
-                    this.outputs = outputs
+                    outputs.then(function(response){
+                        console.log(response)
+                        console.log(response[0])
+                        this.outputs = response
+                    }.bind(this))
                 }
             }).bind(this))
         }
@@ -72,7 +84,4 @@ var router = new VueRouter({
 var app = new Vue({
   el: '#app',
   router: router,
-  data : {
-    message: 'test'
-  }
 })
