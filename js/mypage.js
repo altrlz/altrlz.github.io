@@ -2,19 +2,11 @@ var HomePage = {
     template:'#homepage'
 }
 
+var MyProfile = {
+    template:'#profile'
+}
+
 var getOutputs = function(callback) {
-//     setTimeout(function(){
-//         callback(null,[
-//             {
-//                 id:'001',
-//                 title:'AAAA'
-//             },
-//             {
-//                 id:'002',
-//                 title:'BBBB'
-//             }
-//         ])
-//     },1000)
        callback(null,
             axios.get('https://api.github.com/users/altrlz/repos')
             .then(function(response) {
@@ -72,9 +64,7 @@ var router = new VueRouter({
     },
     {
       path: '/profile',
-      component: {
-        template: '<div>自己紹介ページです。</div>'
-      }
+      component: MyProfile
     },
     {
         path: '/outputs',
