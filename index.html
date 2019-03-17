@@ -1,20 +1,60 @@
  <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>altrlz</title>
-	<style type="text/css">
-	/* CSS styles here... */
-	</style>
+	<meta charset="utf-8">
+	<title>altrlz</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 	</head>
 	
 	<body>
         <div id="app">
-            <h1>altrlz</h1>
-            <router-link to="/top">トップ</router-link>
-            <router-link to="/profile">自己紹介</router-link>
-            <router-link to="/outputs">成果物</router-link>
+        <v-app>
+            <v-content>
+                <v-container>altrlz</v-container>
+            </v-content>
             <router-view></router-view>
+
+           <v-card height="200px" flat>
+              <v-bottom-nav
+                :active.sync="bottomNav"
+                :value="true"
+                absolute
+                color="transparent"
+              >
+                <v-btn
+                  color="teal"
+                  flat
+                  value="top"
+                  to="/"
+                >
+                  <span>Top</span>
+                  <v-icon>home</v-icon>
+                </v-btn>
+
+                <v-btn
+                  color="teal"
+                  flat
+                  value="profile"
+                  to="/profile"
+                >
+                  <span>Profile</span>
+                  <v-icon>face</v-icon>
+                </v-btn>
+
+                <v-btn
+                  color="teal"
+                  flat
+                  value="outputs"
+                  to="/outputs"
+                >
+                  <span>Outputs</span>
+                  <v-icon>important_devices</v-icon>
+                </v-btn>
+              </v-bottom-nav>
+            </v-card>
+        </v-app>
         </div>
         
         <script type="x-template" id="output-list">
@@ -30,9 +70,35 @@
         </div>
         </script>
         
+        <script  type="x-template" id="homepage">
+            <v-card>
+              <v-img
+                class="white--text"
+                height="400px"
+                src="images/top.jpg"
+              >
+                <v-container fill-height fluid>
+                  <v-layout fill-height>
+                    <v-flex xs12 align-end flexbox>
+                      <span class="headline">Realize of the 31st year</span>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-img>
+              <v-card-title>
+                <div>
+                  <span class="grey--text">Number 10</span><br>
+                  <span>Whitehaven Beach</span><br>
+                  <span>Whitsunday Island, Whitsunday Islands</span>
+                </div>
+              </v-card-title>
+            </v-card>
+        </script>
+        
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
         <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
         <script src="js/mypage.js"></script>
     </body>
 	

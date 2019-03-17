@@ -1,3 +1,7 @@
+var HomePage = {
+    template:'#homepage'
+}
+
 var getOutputs = function(callback) {
 //     setTimeout(function(){
 //         callback(null,[
@@ -63,10 +67,8 @@ var OutputList = {
 var router = new VueRouter({
   routes: [
     {
-      path: '/top',
-      component: {
-        template: '<div>トップページです。</div>'
-      }
+      path: '/',
+      component: HomePage
     },
     {
       path: '/profile',
@@ -84,4 +86,9 @@ var router = new VueRouter({
 var app = new Vue({
   el: '#app',
   router: router,
+  data () {
+    return {
+        bottomNav: 'home'
+    }
+  }
 })
