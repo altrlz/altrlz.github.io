@@ -48,24 +48,6 @@
             </v-container>
         </v-app>
         </div>
-
-        
-        <script type="x-template" id="output-list">
-        <v-card>
-            <div v-if="loading" class="text-xs-center">
-                <v-progress-circular indeterminate style="margin-top:10rem;">
-                </v-progress-circular>
-            </div>
-            <div v-if="error">
-                {{ error }}
-            </div>
-            <!-- ロードされたら表示 -->
-            <div v-for="output in outputs">
-                <h2> {{ output.name }} </h2>
-            </div>
-        </v-card>
-        </script>
-
         
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
         <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
@@ -73,6 +55,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
         <script src="js/components/home.js"></script>
         <script src="js/components/profile.js"></script>
+        <script src="js/components/outputs.js"></script>
         <script src="js/mypage.js"></script>
     </body>
 	
