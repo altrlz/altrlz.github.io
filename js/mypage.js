@@ -1,10 +1,3 @@
-var HomePage = {
-    template:'#homepage'
-}
-
-var MyProfile = {
-    template:'#profile'
-}
 
 var getOutputs = function(callback) {
        callback(null,
@@ -38,14 +31,10 @@ var OutputList = {
             this.loading = true
             getOutputs((function (err, outputs) {
                 this.loading = false
-                console.log('err:'+err)
-                console.log('outputs:'+outputs)
                 if (err) {
                     this.error = err.toString()
                 } else {
                     outputs.then(function(response){
-                        console.log(response)
-                        console.log(response[0])
                         this.outputs = response
                     }.bind(this))
                 }
@@ -60,11 +49,15 @@ var router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: HomePage
+      component: {
+      template: '<homepage></homepage>'
+      }
     },
     {
       path: '/profile',
-      component: MyProfile
+      component: {
+      template: '<profile></profile>'
+      }
     },
     {
         path: '/outputs',
