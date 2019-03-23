@@ -1,6 +1,6 @@
 var outputsTemplate =`
-    <v-layout justify-center row wrap>
-        <v-flex d-flex xs6 sm6 md6>
+    <v-layout justify-center>
+        <v-flex d-flex xs12 sm12 md8>
         <v-card>
             <div v-if="loading" class="text-xs-center">
                 <v-progress-circular indeterminate style="margin-top:10rem;">

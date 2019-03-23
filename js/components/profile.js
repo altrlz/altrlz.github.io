@@ -1,6 +1,6 @@
 var profileTemplate = `
     <v-layout justify-center row wrap>
-        <v-flex d-flex xs6 sm6 md4>
+        <v-flex d-flex xs12 sm12 md5>
             <v-card>
                 <v-card-title primary class="title font-weight-thin">Profile</v-card-title>
                 <v-card-text>
@@ -13,7 +13,7 @@ var profileTemplate = `
                 </v-card-text>
             </v-card>
         </v-flex>
-        <v-flex d-flex xs6 sm6 md5>
+        <v-flex d-flex xs12 sm12 md5>
             <v-card>
                 <v-card-title primary class="title font-weight-thin">Introduction</v-card-title>
                 <v-card-text>
