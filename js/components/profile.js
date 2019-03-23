@@ -1,21 +1,29 @@
 var profileTemplate = `
+    <v-layout justify-center row wrap>
+        <v-flex d-flex xs6 sm6 md4>
             <v-card>
-                <v-list>
-                    <v-subheader>
-                    Profile
-                    </v-subheader>
-                        <div v-for="profile in profiles">
-                        <v-divider></v-divider>
-                            <v-list-tile>
-                                <v-list-tile-content>
-                                    <v-list-tile-title> {{ profile.title }} </v-list-tile-title>
-                                    <v-list-tile-sub-title> {{ profile.field }} </v-list-tile-sub-title>
-                                </v-list-tile-content>
-                            </v-list-tile>
-                        </div>
-                </v-list>
+                <v-card-title primary class="title font-weight-thin">Profile</v-card-title>
+                <v-card-text>
+                <table>
+                    <tr v-for="profile in profiles">
+                        <td> {{ profile.title }} </td>
+                        <td class="pl-2 ma-2"> {{ profile.text }} </td>
+                    </tr>
+                </table>
+                </v-card-text>
             </v-card>
-            `
+        </v-flex>
+        <v-flex d-flex xs6 sm6 md5>
+            <v-card>
+                <v-card-title primary class="title font-weight-thin">Introduction</v-card-title>
+                <v-card-text>
+                    {{ introduction }}
+                </v-card-text>
+            </v-card>
+        </v-flex>
+        
+    </v-layout>
+`
 
 var profileComponent = {
     template: profileTemplate,
@@ -23,21 +31,25 @@ var profileComponent = {
             return {
                 profiles: [
                     {
-                        title: 'Name',
-                        field: 'altrlz'
+                        title: 'name:',
+                        text: 'altrlz'
                     },
                     {
-                        title: 'age',
-                        field: '31'
+                        title: 'age:',
+                        text: '31'
                     },
                     {
-                        title: 'location',
-                        field: 'Saitama/Japan'
+                        title: 'location:',
+                        text: 'Saitama/Japan'
                     },
-                    {
-                        title: 'test',
-                        field: 'test'
-                    }]
+                ],
+                
+                introduction: `
+                    SIerからWebプログラマーにジョブチェンジすべく勉強中。
+                    `
+                
+                
+                
             }
             }
 }

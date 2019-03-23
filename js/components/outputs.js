@@ -1,5 +1,7 @@
 var outputsTemplate =`
-       <v-card>
+    <v-layout justify-center row wrap>
+        <v-flex d-flex xs6 sm6 md6>
+        <v-card>
             <div v-if="loading" class="text-xs-center">
                 <v-progress-circular indeterminate style="margin-top:10rem;">
                 </v-progress-circular>
@@ -8,10 +10,34 @@ var outputsTemplate =`
                 {{ error }}
             </div>
             <!-- ロードされたら表示 -->
-            <div v-for="output in outputs">
-                <h2> {{ output.name }} </h2>
+            <v-list two-line>
+            <v-subheader>
+                GitHub
+            </v-subheader>
+                <v-divider></v-divider>
+                <div v-for="output in outputs">
+                <v-list-tile avatar ripple>
+                    <v-list-tile-avatar>
+                            <v-img src="images/git.png" ></v-img>
+                    </v-list-tile-avatar>
+                    <v-list-tile-content>
+                        <v-list-tile-title>
+                          <a v-bind:href="output.html_url">
+                            <kbd>{{ output.name }}</kbd>
+                          </a>
+                        </v-list-tile-title>
+                        <v-list-tile-sub-title>
+                            {{ output.description }}
+                        </v-list-tile-sub-title>
+                    </v-list-tile-content>
+                    <v-chip color="teal" outline disabled="true">{{ output.language }}</v-chip>
+
+                </v-list-tile>
             </div>
+            </v-list>
         </v-card>
+    </v-flex>
+</v-layout>
         `
 
 
